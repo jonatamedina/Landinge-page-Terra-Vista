@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import {
@@ -16,6 +16,7 @@ import {
   MapPin,
   Trees,
   LandPlot,
+  Star,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -23,6 +24,76 @@ import { useState, useRef } from "react"
 import { useIsMobile } from "@/hooks/use-is-mobile"
 import { TypewriterEffect } from "@/components/typewriter-effect"
 import { AnimatedCounter } from "@/components/animated-counter"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+
+// Componente para a nova seção de depoimentos
+function TestimonialsSection() {
+  const testimonials = [
+    {
+      name: "Ana e Carlos Silva",
+      title: "Compradores do Lote 24",
+      avatar: "/placeholder.svg?width=100&height=100",
+      rating: 5,
+      quote:
+        "O processo foi transparente e a equipe nos ajudou em cada passo. Mal podemos esperar para construir nossa casa de praia e acordar com o som do mar. Um sonho se tornando realidade!",
+    },
+    {
+      name: "Marcos Rocha",
+      title: "Investidor",
+      avatar: "/placeholder.svg?width=100&height=100",
+      rating: 5,
+      quote:
+        "Investi no Terra Vista pelo incrível potencial de valorização da região. A localização é estratégica e o projeto é muito bem planejado. Sem dúvida, um dos melhores investimentos que já fiz.",
+    },
+    {
+      name: "Juliana Pereira",
+      title: "Futura Moradora",
+      avatar: "/placeholder.svg?width=100&height=100",
+      rating: 5,
+      quote:
+        "Fiquei impressionada com a beleza natural ao redor do loteamento. Ter uma trilha ecológica e um lago tão perto de casa é um privilégio. A qualidade de vida que teremos aqui não tem preço.",
+    },
+  ]
+
+  return (
+    <section id="depoimentos" className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-800">O que nossos clientes dizem</h2>
+          <p className="text-lg text-gray-600 mt-2">A satisfação de quem já garantiu seu pedaço de paraíso.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <Card key={index} className="flex flex-col">
+              <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                <Avatar>
+                  <AvatarImage src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} />
+                  <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <div>
+                  <CardTitle className="text-base font-bold">{testimonial.name}</CardTitle>
+                  <p className="text-sm text-gray-500">{testimonial.title}</p>
+                </div>
+              </CardHeader>
+              <CardContent className="flex flex-col flex-grow">
+                <div className="flex items-center gap-1 mb-4">
+                  {Array(testimonial.rating)
+                    .fill(0)
+                    .map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                    ))}
+                </div>
+                <blockquote className="text-gray-600 border-l-4 border-green-200 pl-4 italic">
+                  {testimonial.quote}
+                </blockquote>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function TerraVistaLandingPage() {
   const [isMuted, setIsMuted] = useState(true)
@@ -143,13 +214,13 @@ export default function TerraVistaLandingPage() {
               <span className="font-semibold text-green-600">trilha ecológica, lago, praça</span> e fácil acesso.
             </h2>
             <TypewriterEffect
-              text=" Saia na frente e garanta seu lote."
+              text=" Saia na frente e garanta seu lote com condições exclusivas de lançamento."
               className="mt-4 text-lg text-gray-600 min-h-[112px] md:min-h-[56px]"
             />
           </div>
         </section>
 
-        {/* NOVA Seção de Prova Social com Contadores */}
+        {/* Seção de Prova Social com Contadores */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -158,27 +229,27 @@ export default function TerraVistaLandingPage() {
                 <p className="text-4xl font-bold text-blue-900">
                   <AnimatedCounter target={40} prefix="+ de " />
                 </p>
-                <h3 className="text-gray-600 text-justify font-bold">{"Lotes Reservados\n antes do lançamento"}   </h3>
+                <h3 className="font-semibold text-gray-600">Lotes Reservados</h3>
               </div>
               <div className="flex flex-col items-center space-y-2">
                 <MapPin className="h-10 w-10 text-green-600" />
                 <p className="text-4xl font-bold text-blue-900">
                   <AnimatedCounter target={800} suffix="m" />
                 </p>
-                <h3 className="text-gray-600 font-bold">da Praia</h3>
+                <h3 className="font-semibold text-gray-600">da Praia</h3>
               </div>
               <div className="flex flex-col items-center space-y-2">
                 <Trees className="h-10 w-10 text-green-600" />
                 <p className="text-4xl font-bold text-blue-900">
                   <AnimatedCounter target={12000} suffix="m²" />
                 </p>
-                <h3 className="text-gray-600 font-bold">de Área Verde</h3>
+                <h3 className="font-semibold text-gray-600">de Área Verde</h3>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4. Seção com Vantagens */}
+        {/* Seção com Vantagens */}
         <section id="vantagens" className="py-20 bg-blue-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -225,7 +296,7 @@ export default function TerraVistaLandingPage() {
           </div>
         </section>
 
-        {/* NOVA Seção do Vídeo 3D */}
+        {/* Seção do Vídeo 3D */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-gray-800">Visualize seu futuro no Terra Vista</h2>
@@ -247,7 +318,7 @@ export default function TerraVistaLandingPage() {
           </div>
         </section>
 
-        {/* 5. Integração com Spotify */}
+        {/* Integração com Spotify */}
         <section
           className="relative py-20 text-white bg-cover bg-center"
           style={{ backgroundImage: "url('/praia-lounge.jpg')" }}
@@ -272,7 +343,7 @@ export default function TerraVistaLandingPage() {
           </div>
         </section>
 
-        {/* 6. Galeria de fotos */}
+        {/* Galeria de fotos */}
         <section id="fotos" className="py-20 bg-blue-50">
           <div className="container mx-auto px-4">
             <h2 className="text-center text-3xl font-bold mb-12">Galeria de Fotos</h2>
@@ -309,7 +380,7 @@ export default function TerraVistaLandingPage() {
           </div>
         </section>
 
-        {/* 7. Mapa interativo */}
+        {/* Mapa interativo */}
         <section id="localizacao" className="py-20">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-2">Localização Privilegiada</h2>
@@ -330,14 +401,13 @@ export default function TerraVistaLandingPage() {
           </div>
         </section>
 
-        {/* 8. Formulário de interesse */}
-        <section
-          id="contato"
-          className="py-20 bg-cover bg-center"
-          style={{ backgroundImage: "url('/placeholder.svg?width=1920&height=1080')" }}
-        >
+        {/* NOVA Seção de Depoimentos */}
+        <TestimonialsSection />
+
+        {/* Formulário de interesse */}
+        <section id="contato" className="py-20 bg-blue-50">
           <div className="container mx-auto px-4">
-            <Card className="max-w-2xl mx-auto p-8 shadow-2xl bg-white/90 backdrop-blur-sm">
+            <Card className="max-w-2xl mx-auto p-8 shadow-2xl bg-white">
               <div className="text-center space-y-2 mb-8">
                 <h2 className="text-3xl font-bold">Simulação direto com a incorporadora</h2>
                 <p className="text-gray-600">Preencha seu nome e WhatsApp e fale direto com um consultor.</p>
@@ -364,7 +434,7 @@ export default function TerraVistaLandingPage() {
         </section>
       </main>
 
-      {/* 9. Rodapé */}
+      {/* Rodapé */}
       <footer className="bg-gray-900 text-white">
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
