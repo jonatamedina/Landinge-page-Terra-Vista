@@ -214,7 +214,7 @@ export default function TerraVistaLandingPage() {
               <span className="font-semibold text-green-600">trilha ecológica, lago, praça</span> e fácil acesso.
             </h2>
             <TypewriterEffect
-              text=" Saia na frente e garanta seu lote com condições exclusivas de lançamento."
+              text=" Aproveite o preço de lançamento agora."
               className="mt-4 text-lg text-gray-600 min-h-[112px] md:min-h-[56px]"
             />
           </div>
