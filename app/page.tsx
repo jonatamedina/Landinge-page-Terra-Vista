@@ -328,17 +328,37 @@ export default function TerraVistaLandingPage() {
             <h2 className="text-3xl font-bold">🎵 Aperte o play e sinta o clima do Terra Vista</h2>
             <p className="mt-2 text-lg text-gray-300">Playlist inspirada nas praias de Alcobaça.</p>
             <div className="mt-8 w-full max-w-3xl">
-              <iframe
-                data-testid="embed-iframe"
-                style={{ borderRadius: "12px" }}
-                src="https://open.spotify.com/embed/playlist/1ObH7TadmX2qtpOJX4bQHe?utm_source=generator"
-                width="100%"
-                height="152"
-                frameBorder="0"
-                allowFullScreen
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              ></iframe>
+              <div className="relative">
+                <iframe
+                  data-testid="embed-iframe"
+                  style={{ borderRadius: "12px" }}
+                  src="https://open.spotify.com/embed/playlist/1ObH7TadmX2qtpOJX4bQHe?utm_source=generator&theme=0"
+                  width="100%"
+                  height="152"
+                  frameBorder="0"
+                  allowFullScreen
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  title="Playlist Terra Vista"
+                  onError={(e) => {
+                    console.log("Erro ao carregar Spotify embed:", e)
+                    e.currentTarget.style.display = "none"
+                    const fallback = e.currentTarget.nextElementSibling
+                    if (fallback) fallback.style.display = "block"
+                  }}
+                ></iframe>
+                <div style={{ display: "none" }} className="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center">
+                  <p className="text-white mb-4">🎵 Playlist temporariamente indisponível</p>
+                  <a
+                    href="https://open.spotify.com/playlist/1ObH7TadmX2qtpOJX4bQHe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full transition-colors"
+                  >
+                    Abrir no Spotify
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
