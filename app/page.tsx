@@ -214,7 +214,7 @@ export default function TerraVistaLandingPage() {
               <span className="font-semibold text-green-600">trilha ecológica, lago, praça</span> e fácil acesso.
             </h2>
             <TypewriterEffect
-              text=" Aproveite o preço de lançamento agora."
+              text=" Saia na frente e garanta seu lote com condições exclusivas de lançamento."
               className="mt-4 text-lg text-gray-600 min-h-[112px] md:min-h-[56px]"
             />
           </div>
@@ -321,9 +321,9 @@ export default function TerraVistaLandingPage() {
         {/* Integração com Spotify */}
         <section
           className="relative py-20 text-white bg-cover bg-center"
-          style={{ backgroundImage: "url('/praia-lounge.jpg')" }}
+          style={{ backgroundImage: "url('/bara-do-cahy')" }}
         >
-          <div className="absolute inset-0 bg-gray-900/80 z-10" />
+          <div className="absolute inset-0 z-10 bg-slate-500" />
           <div className="relative z-20 container mx-auto px-4 text-center flex flex-col items-center">
             <h2 className="text-3xl font-bold">🎵 Aperte o play e sinta o clima do Terra Vista</h2>
             <p className="mt-2 text-lg text-gray-300">Playlist inspirada nas praias de Alcobaça.</p>
@@ -332,9 +332,9 @@ export default function TerraVistaLandingPage() {
                 <iframe
                   data-testid="embed-iframe"
                   style={{ borderRadius: "12px" }}
-                  src="https://open.spotify.com/embed/playlist/1ObH7TadmX2qtpOJX4bQHe?utm_source=generator&theme=0"
+                  src="https://open.spotify.com/embed/playlist/7uv6YvvjhXMp3B1jNIy93c?utm_source=generator"
                   width="100%"
-                  height="152"
+                  height="352"
                   frameBorder="0"
                   allowFullScreen
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -350,7 +350,7 @@ export default function TerraVistaLandingPage() {
                 <div style={{ display: "none" }} className="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center">
                   <p className="text-white mb-4">🎵 Playlist temporariamente indisponível</p>
                   <a
-                    href="https://open.spotify.com/playlist/1ObH7TadmX2qtpOJX4bQHe"
+                    href="https://open.spotify.com/playlist/7uv6YvvjhXMp3B1jNIy93c"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full transition-colors"
