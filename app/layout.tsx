@@ -29,6 +29,16 @@ html {
         `}</style>
       </head>
       <body>
+        {/* Google Tag Manager (noscript) - DEVE ser o primeiro elemento após <body> */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5FGBS8TM"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
@@ -39,16 +49,6 @@ html {
             })(window,document,'script','dataLayer','GTM-5FGBS8TM');
           `}
         </Script>
-
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-5FGBS8TM"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
 
         {/* Meta Pixel Code */}
         <Script id="meta-pixel" strategy="afterInteractive">
