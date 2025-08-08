@@ -114,7 +114,7 @@ export default function TerraVistaLandingPage() {
     <div className="bg-white text-gray-800 font-sans">
       {/* Botão Fixo WhatsApp */}
       <Link
-        href="https://wa.me/5573000000000"
+        href="https://wa.me/5573998581505"
         target="_blank"
         className="fixed bottom-5 right-5 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform hover:scale-110 flex items-center gap-2"
       >
